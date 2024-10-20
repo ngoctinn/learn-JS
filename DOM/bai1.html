@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=p, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo">đây là một văn bản</p>
+    <button id="changeText">ChangeText</button>
+    <script>
+      document
+        .getElementById("changeText")
+        .addEventListener("click", function () {
+          document.getElementById("demo").innerHTML = "Hello World";
+        });
+    </script>
+  </body>
+</html>
