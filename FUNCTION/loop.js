@@ -23,3 +23,8 @@ let myObject = {
 for (let key in myObject) {
   console.log(key);
 }
+// sử dụng vòng lặp for...of để in ra các value của array
+let myArray = [1, 2, 3, 4, 5];
+for (let value of myArray) {
+  console.log(value);
+}
