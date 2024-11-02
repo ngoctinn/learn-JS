@@ -8,3 +8,4 @@ for (let i = 0; i < allTitles.length; i++) {
 }
 let firstTitle = document.getElementById("first-title");
 console.log(firstTitle);
+//
