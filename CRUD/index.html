@@ -4,38 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      #mytable {
-        width: 100%;
-        border-collapse: collapse;
-        border: solid 1px black;
-      }
-      #mytable th {
-        border: solid 1px black;
-        padding: 5px;
-        text-align: center;
-      }
-    </style>
   </head>
   <body>
-    <div id="wrap">
-      <h2>Danh sách sinh viên</h2>
-      <table id="mytable">
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Mã SV</th>
-            <th>Họ Tên</th>
-            <th>Lớp</th>
-          </tr>
-        </thead>
-        <tbody>
-          <th>1</th>
-          <th>3121410041</th>
-          <th>Nguyễn Ngọc Tín</th>
-          <th>DCT2119</th>
-        </tbody>
-      </table>
+    <div class="form">
+      <div class="form-group">
+        <label for="name">Name: </label>
+        <input type="text" id="name" class="form-input" />
+        <div class="error-message"></div>
+      </div>
+      <div class="form-group">
+        <label for="address">Address: </label>
+        <input type="text" id="address" class="form-input" />
+        <div class="error-message"></div>
+      </div>
+      <button onclick="ValidateInput()">Add new</button>
+      <script>
+        function ValidateInput() {
+          let formElement = document.querySelector(".form");
+          let inputElement = formElement.querySelectorAll(".form-input");
+          for (let i = 0; i < inputElement.length; i++) {
+            if (inputElement[i].value === "") {
+              inputElement[i].parentElement.querySelector(
+                ".error-message"
+              ).innerHTML = "This field is required";
+            } else {
+              inputElement[i].parentElement.querySelector(
+                ".error-message"
+              ).innerHTML = "";
+            }
+          }
+        }
+      </script>
     </div>
   </body>
 </html>
