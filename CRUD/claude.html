@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CRUD with localStorage</title>
+  </head>
+  <body>
+    <h1>CRUD with localStorage</h1>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter name" />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter email" />
+
+    <button onclick="createItem()">Create</button>
+    <button onclick="readItems()">Read</button>
+    <button onclick="updateItem()">Update</button>
+    <button onclick="deleteItem()">Delete</button>
+
+    <div id="output"></div>
+
+    <script>
+      function createItem() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const item = { name, email };
+        saveToLocalStorage("item", item);
+        document.getElementById("output").textContent = "Item created";
+      }
+
+      function readItems() {
+        const item = getFromLocalStorage("item");
+        document.getElementById(
+          "output"
+        ).textContent = `Name: ${item.name}, Email: ${item.email}`;
+      }
+
+      function updateItem() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const item = { name, email };
+        updateLocalStorage("item", item);
+        document.getElementById("output").textContent = "Item updated";
+      }
+
+      function deleteItem() {
+        deleteFromLocalStorage("item");
+        document.getElementById("output").textContent = "Item deleted";
+      }
+
+      // Helper functions (same as before)
+      function saveToLocalStorage(key, data) {
+        localStorage.setItem(key, JSON.stringify(data));
+      }
+
+      function getFromLocalStorage(key) {
+        return JSON.parse(localStorage.getItem(key));
+      }
+
+      function updateLocalStorage(key, newData) {
+        localStorage.setItem(key, JSON.stringify(newData));
+      }
+
+      function deleteFromLocalStorage(key) {
+        localStorage.removeItem(key);
+      }
+    </script>
+  </body>
+</html>
